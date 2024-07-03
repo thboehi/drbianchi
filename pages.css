@@ -15,6 +15,7 @@
     justify-content: center;
     padding-top: 50px;
     padding-bottom: 50px;
+    flex-wrap: wrap;
 }
 
 .person-container{
@@ -30,11 +31,11 @@
 
 .person-container:hover{
     transform: translateY(-5px);
-    box-shadow: 0 5px 0px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 0px 0 var(--color2);
 }
 
 .person-img-container{
-    width: 120px;
+    width: 210px;
     height: auto;
     border-radius: 6px;
     aspect-ratio: 9/16;
@@ -50,6 +51,8 @@
     object-fit: cover;
     object-position: center;
     transition: transform 300ms ease-out;
+    pointer-events: none;
+    user-select: none;
 }
 
 .person-container:hover > .person-img-container img{
@@ -77,9 +80,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: 10px;
     background: var(--white);
-    padding: 20px 120px;
+    padding: 40px 120px;
     transform: translateY(calc(100dvh/6));
     z-index: 2;
     text-align: center;
@@ -87,11 +89,12 @@
 }
 
 .hero-text-container > h1{
+    font-family: "Della Respira", serif;
     font-size: 3rem;
 }
 
-.hero-text-container > p{
-    font-size: 1.7rem;
+.hero-text-container > a{
+    margin-top: 20px;
 }
 
 /* -------- ABOUT -------- */
@@ -105,7 +108,7 @@
 .about-container{
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 60px;
     align-items: center;
     justify-content: center;
 }
@@ -125,7 +128,40 @@
     gap: 20px;
     align-items: flex-start;
 }
+.about-left > h2{
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-size: 1.9rem;
+}
+.about-left > p{
+    text-align: justify;
+}
 
+.partner{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.partner-container{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.partner-container > a > img{
+    height: 60px;
+    width: auto;
+    transition: transform 300ms ease-out, opacity 300ms ease-out;
+}
+.partner-container > a > img:hover{
+    opacity: 0.8;
+    transform: scale(1);
+    transition: transform 100ms ease-out, opacity 100ms ease-out;
+}
 /* ------- ALBUM ------- */
 .album{
     overflow: hidden;
@@ -172,6 +208,44 @@
     border-radius: 15px;
 }
 
+/* ------- CONTACT ------- */
+
+.contact{
+    background: var(--white-darker);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.contact-top{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.contact-top-left, .contact-top-right{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.contact-top h3{
+    font-weight: 700;
+    font-size: 1.2rem;
+
+}
+.contact-top h4{
+    padding-top: 4px;
+    text-decoration: underline;
+}
+
+.form{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
 
 @media screen and (max-width: 768px) {
     .hero-text-container{

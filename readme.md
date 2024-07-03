@@ -28,7 +28,7 @@
 }
 ```
 
-## Merriweather Static
+## Merriweather Static (Subtitle)
 ```css
 .merriweather-light {
   font-family: "Merriweather", serif;

@@ -1,16 +1,11 @@
-<section id="hero" class="hero padding">
-    <div class="hero-text-container">
-        <h1>Grace Bianchi</h1>
-        <p>Spécialiste en Gynécologie-obstrétrique opératoire.</p>
-        <button class="cta">Prendre rendez-vous</button>
-    </div>
-</section>
+<?php require "./components/hero.php" ?>
+
 <section id="about" class="about padding margin-first">
     <div class="section-container max-width about-container">
         <div class="about-left">
             <h2>Le cabinet</h2>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt quos nemo culpa iusto facilis optio, corrupti magnam, sequi asperiores nostrum placeat recusandae ullam deserunt ea voluptates perferendis illo, quod vero.</p>
-            <button class="cta">En savoir plus...</button>
+            <a class="cta">En savoir plus...</a>
         </div>
         <div class="about-right">
             <img src="../img/banner.jpg" alt="Oui">
@@ -28,11 +23,4 @@
         <?php require "./components/album.php"?>
     </div>
 
-</section>
-
-<section id="equipe" class="about padding">
-    <h2>Notre équipe</h2>
-    <div class="section-container max-width team-container">
-        <?php require "./components/team.php" ?>
-    </div>
 </section>

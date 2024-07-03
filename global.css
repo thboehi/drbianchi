@@ -20,7 +20,7 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     box-sizing: border-box;
 }
 
@@ -83,7 +83,7 @@ a{
     left: 0;
     width: 100%;
     height: 2px;
-    background: var(--color1);
+    background: var(--color2);
     transform: translateY(100%);
     transition: transform 300ms ease-out, opacity 300ms ease-out;
     opacity: 0;
@@ -95,6 +95,27 @@ a{
     transition: transform 300ms ease-out, opacity 300ms ease-out;
 }
 
+section > h2{
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-size: 1.9rem;
+    text-align: center;
+}
+
+.contact-active, .contact-inactive{
+    font-weight: 700;
+    font-size: 1rem;
+    cursor:var(--color1);
+    user-select: none;
+}
+
+.contact-active{
+    color: green;
+}
+.contact-inactive{
+    color: red;
+    cursor: not-allowed;
+}
 
 /* ------ NAVBAR ------ */
 
@@ -266,6 +287,8 @@ a{
     gap: 3px;
     list-style: none;
 }
+
+
 @media screen and (min-width: 768px) {
     #burger-menu{
         display: none;
