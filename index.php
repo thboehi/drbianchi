@@ -8,8 +8,8 @@ $viewDir = '/views/';
 $compDir = '/components/';
 
 //Paramètres important du site Web
-$siteName = "Dr Bianchi";
-$siteDescription = "Cabinet de la Doctoresse Patrizia Bianchi Movarekhi, spécialiste en Gynécologie-obstrétrique opératoire.";
+$siteName = "Dr. Grace Bianchi";
+$siteDescription = "Cabinet de la Doctoresse Patrizia Grace Bianchi Movarekhi, spécialiste en Gynécologie-obstétrique opératoire, stérilité et fertilité. Nous offrons des traitements pour l'infertilité, le désir de grossesse, et la FIV - ICSI, avec une prise en charge personnalisée et des soins attentionnés.";
 $separator = " | ";
 
 //Cette partie est la plus importante, c'est le routeur, il permet de charger les éléments en fonction du lien dans la barre de navigation

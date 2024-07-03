@@ -1,7 +1,7 @@
 <?php
 
 // Chemin vers le dossier des images
-$albumDir = './data/album/';
+$albumDir = './img/album/';
 
 // Ouvrir le dossier
 $folder = opendir($albumDir);

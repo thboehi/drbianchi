@@ -7,6 +7,55 @@
 }
 /* -------- HOME -------- */
 
+.team-container{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.person-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 300ms ease-out, box-shadow 300ms ease-out;
+}
+
+.person-container:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 5px 0px 0 rgba(0, 0, 0, 0.1);
+}
+
+.person-img-container{
+    width: 120px;
+    height: auto;
+    border-radius: 6px;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.person-img-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 300ms ease-out;
+}
+
+.person-container:hover > .person-img-container img{
+    transform: scale(1.05);
+}
+
 /* -------- HERO -------- */
 
 .hero{
@@ -34,6 +83,7 @@
     transform: translateY(calc(100dvh/6));
     z-index: 2;
     text-align: center;
+    border-radius: 15px;
 }
 
 .hero-text-container > h1{
@@ -47,8 +97,7 @@
 /* -------- ABOUT -------- */
 
 .about{
-    background: var(--color3);
-    margin-top: 220px;
+    background: var(--white-darker);
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -67,6 +116,7 @@
     aspect-ratio: 4/3;
     object-fit: cover;
     object-position: center;
+    border-radius: 15px;
 }
 .about-left{
     width: calc(100vw / 3);
@@ -88,9 +138,23 @@
       );
     padding-top: 50px;
     padding-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: var(--gap);
 }
 
 .album-content{
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: var(--gap);
+    animation: scroll-x var(--duration) linear infinite;
+}
+
+.album-content2{
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -105,6 +169,7 @@
     object-fit: cover;
     object-position: center;
     height: 240px;
+    border-radius: 15px;
 }
 
 
