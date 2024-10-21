@@ -69,3 +69,16 @@ onload = () => {
     }
     lastPosition = position
 }
+
+tippy('#joignable', {
+    content: 'Nous sommes atteignable par téléphone',
+  });
+tippy('#injoignable', {
+content: 'Réessayez durant les heures d\'ouverture',
+});
+tippy('#ouvert', {
+    content: 'Vous pouvez venir nous voir',
+  });
+tippy('#ferme', {
+content: 'Les consultations soint terminées pour aujourd\'hui',
+});

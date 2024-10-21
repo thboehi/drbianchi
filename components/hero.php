@@ -1,7 +1,8 @@
 <section id="hero" class="hero padding">
     <div class="hero-text-container">
         <h1>Grace Bianchi</h1>
-        <p>Spécialiste en Gynécologie-obstrétrique opératoire.</p>
-        <a class="cta">Prendre rendez-vous</a>
+        <p>Médecin de la reproduction</p>
+        <p>Spécialiste FMH - Gyn-obst med de la reproduction</p>
+        <a class="cta" href="/contact">Prendre rendez-vous</a>
     </div>
 </section>

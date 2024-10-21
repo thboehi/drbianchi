@@ -18,7 +18,7 @@ switch ($request) {
 
     case '/':
         //Définir le titre de la page
-        $title = $siteName . $separator . "Accueil";
+        $title = $siteName . '' . $separator . "Accueil";
         $description = $siteDescription;
 
         //Charger le header, puis le contenu, puis le footer.
@@ -66,5 +66,3 @@ switch ($request) {
 
         break;
 }
-
-?>

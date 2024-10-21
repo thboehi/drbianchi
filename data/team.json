@@ -1,22 +1,17 @@
 [
     {
-        "name": "Margot D.",
+        "name": "Grace Bianchi",
+        "post": "Médecin spécialiste",
+        "picture": "grace.jpg"
+    },
+    {
+        "name": "Evelina",
+        "post": "Assistante",
+        "picture": "evelina.jpg"
+    },
+    {
+        "name": "Déa",
         "post": "Secrétaire",
-        "picture": "margot.jpg"
-    },
-    {
-        "name": "Bella D.",
-        "post": "Directrice",
-        "picture": "bella.jpg"
-    },
-    {
-        "name": "Bella D.",
-        "post": "Directrice",
-        "picture": "bella.jpg"
-    },
-    {
-        "name": "Mia D.",
-        "post": "Directrice",
-        "picture": "bella.jpg"
+        "picture": "blank.jpg"
     }
 ]
