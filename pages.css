@@ -70,6 +70,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 220px;
 }
 
 .hero-text-container{
@@ -101,8 +102,8 @@
 
 .about{
     background: var(--white-darker);
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .about-container{
@@ -111,6 +112,11 @@
     gap: 60px;
     align-items: center;
     justify-content: center;
+}
+
+.section-invert{
+    flex-direction: row-reverse;
+
 }
 
 .about-right > img{
@@ -135,6 +141,15 @@
 }
 .about-left > p{
     text-align: justify;
+}
+
+.about-left > ul > li{
+    list-style: none;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+.about-left > ul > li::before{
+    content: "";
 }
 
 .partner{
@@ -172,25 +187,15 @@
         hsl(0 0% 0% / 1) 80%,
         hsl(0 0% 0% / 0)
       );
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     gap: var(--gap);
 }
 
-.album-content{
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    min-width: 100%;
-    gap: var(--gap);
-    animation: scroll-x var(--duration) linear infinite;
-}
-
-.album-content2{
+.album-content, .album-content2{
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -206,6 +211,8 @@
     object-position: center;
     height: 240px;
     border-radius: 15px;
+    user-select: none;
+    pointer-events: none;
 }
 
 /* ------- CONTACT ------- */
@@ -246,6 +253,73 @@
     padding-top: 50px;
     padding-bottom: 50px;
 }
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: clamp(300px, 100%, 500px);
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.form-group label{
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.form-group input, textarea{
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: var(--white-darker);
+    border: none;
+    transition: outline 300ms ease-out;
+    outline: transparent solid 2px;
+    font-size: 1rem;
+    resize: none;
+    width: 100%;
+}
+
+.form-group input:focus, textarea:focus{
+    outline: var(--black) solid 2px;
+}
+
+.form-group textarea{
+    min-height: 100px;
+    field-sizing: content;
+    max-height: 400px;
+}
+
+.form-feedback, .form-error{
+    font-weight: 700;
+    font-size: 1rem;
+    user-select: none;
+    color: var(--white);
+    text-align: center;
+    padding: 2px 4px;
+    border-radius: 4px;
+    justify-self: flex-start;
+    width: fit-content;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.form-feedback{
+    background: #6cac44;
+}
+
+.form-error{
+    background: #cc3344;
+    cursor: not-allowed;
+}
+
 
 @media screen and (max-width: 768px) {
     .hero-text-container{

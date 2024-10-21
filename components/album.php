@@ -14,7 +14,7 @@ while (($file = readdir($folder)) !== false) {
         $name = pathinfo($file, PATHINFO_FILENAME);
         
         // Afficher l'élément HTML pour l'image
-        echo '<img class="album-img" src="' . $albumDir . $file . '" alt="' . $name . '">';
+        echo '<img class="album-img" draggable="false" src="' . $albumDir . $file . '" alt="' . $name . '">';
     }
 }
 

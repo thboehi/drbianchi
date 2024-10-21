@@ -1,5 +1,8 @@
 <?php
 
+$mailSent = false;
+$errorMessage = "";
+
 require "./components/hero.php";
 
 date_default_timezone_set('Europe/Paris'); // Assurez-vous que le fuseau horaire est correct
@@ -12,8 +15,8 @@ $currentTime = date('H:i');
 $workingHours = [
     1 => [['08:30', '12:00'], ['14:00', '17:00']], // Lundi
     2 => [['08:30', '12:00'], ['14:00', '17:00']], // Mardi
-    3 => [['08:30', '12:00']],                    // Mercredi
-    4 => [['08:30', '12:00']],                    // Jeudi
+    3 => [['08:30', '12:00']],                     // Mercredi
+    4 => [['08:30', '12:00']],                     // Jeudi
     5 => [['08:30', '12:00'], ['14:00', '17:00']], // Vendredi
 ];
 
@@ -42,10 +45,44 @@ function isAvailable($dayOfWeek, $currentTime, $hours) {
     }
     return false;
 }
+
+//Check si la méthode est poste, si oui, récupérer tous les champs
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $message = $_POST["message"];
+
+    //Check si l'email est valide
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        //Check si le message fait au moins 10 caractères
+        if (strlen($message) >= 10){
+            // Envoi de l'email
+            $to = "bianchitest@thbo.ch";
+            $subject = "Nouveau message de $name";
+            $body = "Nom: $name\nEmail: $email\nTéléphone: $phone\nMessage:\n$message";
+            $headers = "From: $email";
+
+            // Retirer le commentaire à la ligne suivante pour activer la fonction d'envoi de mail 
+            // mail($to, $subject, $body, $headers);
+            $mailSent = true;
+        } else {
+            $errorMessage = "Message trop court.";
+            $mailSent = false;
+        }
+        
+    } else {
+        $errorMessage = "Adresse email invalide.";
+        $mailSent = false;
+    }
+    
+}
+
+
 ?>
 
 
-<section class="contact padding margin-first">
+<section class="contact padding">
     <h2>Contact</h2>
     <div class="contact-container max-width section-container">
         <div class="contact-top">
@@ -56,10 +93,12 @@ function isAvailable($dayOfWeek, $currentTime, $hours) {
                     <h4>Consultations au cabinet</h4>
                     <p>15, Rue Lombard</p>
                     <p>1205 Genève</p>
+                    <a href="https://maps.app.goo.gl/338kTmaU3WRHRvHM6" class="underline-link" target="_blank">Voir sur Google Maps</a>
                     <h4>PMA (Procréation médicalement assistée)</h4>
                     <p>BabyImpulse - Clinique des Grangettes</p>
                     <p>Chemin des Grangettes 7</p>
                     <p>1224 Chêne Bougeries</p>
+                    <a href="https://maps.app.goo.gl/JE6D6DEYLwPxookW6" class="underline-link" target="_blank">Voir sur Google Maps</a>
                 </div>
                 <div class="contact-coords">
                     <h3>Coordonnées du cabinet</h3>
@@ -78,9 +117,9 @@ function isAvailable($dayOfWeek, $currentTime, $hours) {
                     <?php
                     // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
                     if (isAvailable($dayOfWeek, $currentTime, $workingHours)) {
-                        echo "<p class=\"contact-active\">Joignable</p>";
+                        echo "<p class=\"contact-active\" id=\"joignable\">Joignable</p>";
                     } else {
-                        echo "<p class=\"contact-inactive\">Injoignable</p>";
+                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Injoignable</p>";
                     }
                     ?>
                 </div>
@@ -91,9 +130,9 @@ function isAvailable($dayOfWeek, $currentTime, $hours) {
                     <?php
                     // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
                     if (isAvailable($dayOfWeek, $currentTime, $openHours)) {
-                        echo "<p class=\"contact-active\">Ouvert</p>";
+                        echo "<p class=\"contact-active\" id=\"ouvert\">Ouvert</p>";
                     } else {
-                        echo "<p class=\"contact-inactive\">Fermé</p>";
+                        echo "<p class=\"contact-inactive\" id=\"ferme\">Fermé</p>";
                     }
                     ?>
                 </div>
@@ -103,16 +142,34 @@ function isAvailable($dayOfWeek, $currentTime, $hours) {
     </div>
 </section>
 
-<section class="form">
-    <h2>Formulaire de contact</h3>
+<section class="form padding">
+    <h2>Formulaire</h3>
+    <?php if ($mailSent) : ?>
+        <p class="form-feedback">Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs délais.</p>
+    <?php else : ?>
     <div class="form-container max-width section-container">
-        <form action="contact.php" method="post">
+        <?php if ($errorMessage) : ?>
+            <p class="form-error"><?php echo $errorMessage ?></p>
+        <?php endif; ?>
+        <form method="post">
             <div class="form-group">
-                <label for="name">Nom</label>
-                <input type="text" id="name" name="name" required>
+                <label for="name">Prénom et nom</label>
+                <input type="text" id="name" name="name" required value="<?php echo !empty($name) ? htmlspecialchars($name) : ''; ?>" >
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required value="<?php echo !empty($email) ? htmlspecialchars($email) : ''; ?>">
             </div>
+            <div class="form-group">
+                <label for="phone">Téléphone</label>
+                <input type="tel" id="phone" name="phone" required value="<?php echo !empty($phone) ? htmlspecialchars($phone) : ''; ?>">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" minlength="10" required value="<?php echo !empty($message) ? htmlspecialchars($message) : ''; ?>"></textarea>
+            </div>
+            <button type="submit" class="cta">Envoyer</button>
+        </form>
+    </div>
+    <?php endif; ?>
 </section>
