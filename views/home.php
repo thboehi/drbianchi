@@ -4,7 +4,7 @@
     <div class="max-width about-container section-invert">
         <div class="about-left">
             <h2>La Clinique du Dr Bianchi</h2>
-            <p>Consultations de fertilité pour le couple ou pour célibataires</p>
+            <p>Consultations de fertilité pour le couple ou pour célibataires !</p>
             <ul>
                 <li>Si vous désirez une grossesse et elle tarde...</li>
                 <li>Si vous avez envie / besoin de conserver votre potentiel de fertilité</li>
