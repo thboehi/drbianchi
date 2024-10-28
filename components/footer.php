@@ -1,5 +1,5 @@
         <footer id="footer">
-            <div class="footer-container max-width padding">
+            <div class="footer-container max-width">
                 <div class="footer-left">
                     
                     <div class="footer-adress">
@@ -45,6 +45,7 @@
                             <li><a class="underline-link" href="/">Accueil</a></li>
                             <li><a class="underline-link" href="/about">Présentation</a></li>
                             <li><a class="underline-link" href="/contact">Contact</a></li>
+                            <li><a class="underline-link" href="/config">Admin</a></li>
                         </ul>
                     </div>
                     <div>

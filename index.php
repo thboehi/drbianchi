@@ -51,6 +51,28 @@ switch ($request) {
         require __DIR__ . $compDir . 'footer.php';
 
         break;
+    case '/config':
+        //Définir le titre de la page
+        $title = $siteName . $separator . "Configuration";
+        $description = $siteDescription;
+
+        //Charger le header, puis le contenu, puis le footer.
+        require __DIR__ . $compDir . 'header.php';
+        require __DIR__ . $viewDir . 'config.php';
+        require __DIR__ . $compDir . 'footer.php';
+
+        break;
+    case '/config?logout':
+        //Définir le titre de la page
+        $title = $siteName . $separator . "Configuration";
+        $description = $siteDescription;
+
+        //Charger le header, puis le contenu, puis le footer.
+        require __DIR__ . $compDir . 'header.php';
+        require __DIR__ . $viewDir . 'config.php';
+        require __DIR__ . $compDir . 'footer.php';
+
+        break;
             
     default:
         //Renvoyer erreur 404 au navigateur

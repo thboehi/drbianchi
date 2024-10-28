@@ -1,5 +1,9 @@
 <?php
 
+$configFile = './settings.json';
+$config = json_decode(file_get_contents($configFile), true);
+$vacances = $config['vacances'];
+
 $mailSent = false;
 $errorMessage = "";
 
@@ -30,19 +34,31 @@ $openHours = [
 
 // Fonction pour vérifier si l'heure actuelle est dans une plage horaire donnée
 function isWithinTimeRange($currentTime, $timeRange) {
-    list($startTime, $endTime) = $timeRange;
-    return ($currentTime >= $startTime && $currentTime <= $endTime);
+    global $vacances;
+    if ($vacances) {
+        return false;
+    } else {
+        list($startTime, $endTime) = $timeRange;
+        return ($currentTime >= $startTime && $currentTime <= $endTime);
+    }
+    
 }
 
 // Vérifie si l'heure actuelle est dans une des plages horaires du jour actuel
 function isAvailable($dayOfWeek, $currentTime, $hours) {
-    if (isset($hours[$dayOfWeek])) {
-        foreach ($hours[$dayOfWeek] as $timeRange) {
-            if (isWithinTimeRange($currentTime, $timeRange)) {
-                return true;
+    global $vacances;
+    if ($vacances) {
+        return false;
+    } else {
+        if (isset($hours[$dayOfWeek])) {
+            foreach ($hours[$dayOfWeek] as $timeRange) {
+                if (isWithinTimeRange($currentTime, $timeRange)) {
+                    return true;
+                }
             }
         }
     }
+    
     return false;
 }
 
@@ -116,7 +132,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p>8h30 - 12h</p>
                     <?php
                     // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
-                    if (isAvailable($dayOfWeek, $currentTime, $workingHours)) {
+                    if ($vacances) {
+                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Vacances</p>";
+                    }
+                    elseif (isAvailable($dayOfWeek, $currentTime, $workingHours)) {
                         echo "<p class=\"contact-active\" id=\"joignable\">Joignable</p>";
                     } else {
                         echo "<p class=\"contact-inactive\" id=\"injoignable\">Injoignable</p>";
@@ -129,7 +148,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <p>8h30 - 13h</p>
                     <?php
                     // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
-                    if (isAvailable($dayOfWeek, $currentTime, $openHours)) {
+                    if ($vacances) {
+                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Vacances</p>";
+                    } elseif (isAvailable($dayOfWeek, $currentTime, $openHours)) {
                         echo "<p class=\"contact-active\" id=\"ouvert\">Ouvert</p>";
                     } else {
                         echo "<p class=\"contact-inactive\" id=\"ferme\">Fermé</p>";

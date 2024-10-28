@@ -138,9 +138,6 @@ section > h2{
     transform: translateY(-100%);
     transition: background 600ms ease-out, transform 600ms var(--ease-slow-fast);
 }
-#nav-element[data-bg="visible"] a{
-    text-shadow: none;
-}
 #nav-element{
     position: fixed;
     top: 0; left: 0;
@@ -284,7 +281,7 @@ section > h2{
 /* ------ FOOTER ------ */
 
 #footer{
-    padding: 100px 0px;
+    padding: 100px 10px;
 }
 
 .footer-container{
@@ -369,6 +366,9 @@ section > h2{
     #nav-element{
         padding: 0px 10px;
     }
+    #nav-element a{
+        text-shadow: none;
+    }
     #nav-menu{
         display: none;
     }
@@ -382,5 +382,6 @@ section > h2{
     .footer-container{
         flex-direction: column;
     }
+    
 
 }
