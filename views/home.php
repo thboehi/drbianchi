@@ -29,6 +29,10 @@
         <?php require "./components/album.php"?>
     </div>
 
+    <div class="album-content2">
+        <?php require "./components/album.php"?>
+    </div>
+
 </section>
 
 <section id="about" class="about padding">

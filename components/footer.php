@@ -59,7 +59,7 @@
             </div>
             <div class="footer-copyright">
                 <p>© 2024 Dr. Bianchi</p>
-                <p>Site web réalisé par <a class="underline-link" target=(_blank) href="https://thbo.ch">Thomas Boehi</a></p>
+                <p>Site web réalisé par <a class="underline-link" target=(_blank) href="https://thbo.ch">THBO</a></p>
             </div>
         </footer>
         <script src="../js/index.js" async defer></script>
