@@ -25,11 +25,11 @@ $workingHours = [
 ];
 
 $openHours = [
-    1 => [['08:30', '13:00']], // Lundi
-    2 => [['08:30', '13:00']], // Mardi
-    3 => [['08:30', '13:00']], // Mercredi
-    4 => [['08:30', '13:00']], // Jeudi
-    5 => [['08:30', '13:00']], // Vendredi
+    1 => [['08:30', '13:00'], ['14:00', '18:00']], // Lundi
+    2 => [['08:30', '13:00'], ['14:00', '18:00']], // Mardi
+    3 => [['08:30', '13:00'], ['14:00', '18:00']], // Mercredi
+    4 => [['08:30', '13:00'], ['14:00', '18:00']], // Jeudi
+    5 => [['08:30', '13:00'], ['14:00', '18:00']], // Vendredi
 ];
 
 // Fonction pour vérifier si l'heure actuelle est dans une plage horaire donnée
@@ -106,7 +106,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="contact-top-left">
                 <div class="contact-adress">
                     <h3>Adresses</h3>
-                    <h4>Consultations au cabinet</h4>
+                    <h4>Consultations</h4>
                     <p>15, Rue Lombard</p>
                     <p>1205 Genève</p>
                     <a href="https://maps.app.goo.gl/338kTmaU3WRHRvHM6" class="underline-link" target="_blank">Voir sur Google Maps</a>
@@ -145,7 +145,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="consult-schedule">
                     <h3>Horaires de consultation</h3>
                     <h4>Lundi au Vendredi</h4>
-                    <p>8h30 - 13h</p>
+                    <p>8h30 - 13h30</p>
+                    <p>(pour patientes de fertilité)</p>
+                    <p>14h - 18h</p>
+                    <p>(pour la gynécologie-obstétrique)</p>
                     <?php
                     // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
                     if ($vacances) {

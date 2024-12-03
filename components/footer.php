@@ -4,14 +4,14 @@
                     
                     <div class="footer-adress">
                         <div>
-                            <h4>Consultations au cabinet</h4>
+                            <h4>Consultations</h4>
                             <p>15, Rue Lombard</p>
                             <p>1205 Genève</p>
                             <a href="https://maps.app.goo.gl/338kTmaU3WRHRvHM6" class="underline-link" target="_blank">Voir sur Google Maps</a>
                             
                         </div>
                         <div>
-                            <h4>PMA (Procréation médicalement assistée)</h4>
+                            <h4>Traitements de PMA</h4>
                             <p>BabyImpulse - Clinique des Grangettes</p>
                             <p>Chemin des Grangettes 7</p>
                             <p>1224 Chêne Bougeries</p>

@@ -6,10 +6,12 @@
             <h2>La Clinique du Dr Bianchi</h2>
             <p>Consultations de fertilité pour le couple ou pour célibataires</p>
             <ul>
-                <li>Si vous désirez une grossesse et elle tarde...</li>
-                <li>Si vous avez envie / besoin de conserver votre potentiel de fertilité</li>
-                <li>Si vous avez un doute sur votre fertilité</li>
-                <li>Si vous avez vécu plusieurs fausses couches</li>
+                <li>Bilan de fertilité</li>
+                <li>Prise en charge du désir de grossesse</li>
+                <li>Traitements de fertilité</li>
+                <li>FIV/ISCI</li>
+                <li>IIU (Inséminations intra-utérines)</li>
+                <li>DPI (Diagnostic pré-implantatoire)</li>
             </ul>
             <a class="cta">En savoir plus...</a>
         </div>
@@ -38,8 +40,8 @@
 <section id="about" class="about padding">
     <div class="max-width about-container">
         <div class="about-left">
-            <h2>Baby-Impulse</h2>
-            <p>BabyImpulse est un Laboratoire de Biologie de la Reproduction. Notre mission principale est d’aider les couples à concevoir un enfant et à réaliser leur projet parental. Découvrez notre ADN en cliquant ci-dessous.</p>
+            <h2>BabyImpulse</h2>
+            <p>BabyImpulse est un Laboratoire de Biologie de la Reproduction dont la mission principale est d’aider les couples à concevoir un enfant et à réaliser leur projet parental. Découvrez notre ADN en cliquant ci-dessous.</p>
             <a class="cta" href="https://babyimpulse.ch/a-propos/" target="_blank">Vers la clinique</a>
         </div>
         <div class="about-right">
