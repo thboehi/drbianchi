@@ -71,20 +71,103 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
-    $message = $_POST["message"];
+    $message = nl2br(htmlspecialchars($_POST["message"]));
 
     //Check si l'email est valide
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         //Check si le message fait au moins 10 caractères
         if (strlen($message) >= 10){
-            // Envoi de l'email
             $to = "bianchitest@thbo.ch";
-            $subject = "Nouveau message de $name";
-            $body = "Nom: $name\nEmail: $email\nTéléphone: $phone\nMessage:\n$message";
-            $headers = "From: $email";
+            $subject = "Nouveau message de $name (depuis le site drbianchi.ch)";
 
-            // Retirer le commentaire à la ligne suivante pour activer la fonction d'envoi de mail 
-            // mail($to, $subject, $body, $headers);
+            // Récupérer le domaine actuel (par exemple, https://example.com)
+            $domain = ($_SERVER['HTTPS'] ? "https://" : "http://") . $_SERVER['HTTP_HOST'];
+
+            $body = "
+            <!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f9f9f9;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .email-container {
+                        max-width: 600px;
+                        margin: 20px auto;
+                        background: #ffffff;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    }
+                    .header {
+                        background: #2EB6AB;
+                        color: #ffffff;
+                        text-align: center;
+                        padding: 20px;
+                    }
+                    .header img {
+                        max-width: 100px;
+                        margin-bottom: 10px;
+                    }
+                    .header h1 {
+                        margin: 0;
+                        font-size: 1.5rem;
+                    }
+                    .content {
+                        padding: 20px;
+                        color: #333333;
+                    }
+                    .content p {
+                        margin: 10px 0;
+                    }
+                    .content strong {
+                        color: #2EB6AB;
+                    }
+                    .footer {
+                        background: #f1f1f1;
+                        text-align: center;
+                        padding: 10px;
+                        font-size: 0.9rem;
+                        color: #666666;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class='email-container'>
+                    <div class='header'>
+                        <a href='$domain'>
+                            <img src='$domain/img/logo.png' alt='Logo Dre Bianchi'>
+                        </a>
+                        <h1>Nouveau formulaire de contact</h1>
+                        <h4>de $name</h4>
+                    </div>
+                    <div class='content'>
+                        <p><strong>Nom</strong></p>
+                        <p>$name</p>
+                        <p><strong>Email</strong></p>
+                        <p>$email</p>
+                        <p><strong>Téléphone</strong></p>
+                        <p>$phone</p>
+                        <p><strong>Message</strong></p>
+                        <p>$message</p>
+                    </div>
+                    <div class='footer'>
+                        <p>Envoyé depuis le formulaire de contact du site.</p>
+                    </div>
+                </div>
+            </body>
+            </html>";
+
+            $headers = "From: $email\r\n";
+            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+            // Retirer le commentaire à la ligne suivante pour activer la fonction d'envoi de mail
+            mail($to, $subject, $body, $headers);
             $mailSent = true;
         } else {
             $errorMessage = "Message trop court.";
