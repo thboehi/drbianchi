@@ -1,17 +1,22 @@
 [
     {
-        "name": "Grace Bianchi",
+        "name": "Dre Grace Bianchi",
         "post": "Médecin spécialiste",
         "picture": "grace.jpg"
     },
     {
         "name": "Evelina",
-        "post": "Assistante",
+        "post": "Assistante médicale",
         "picture": "evelina.jpg"
     },
     {
-        "name": "Déa",
+        "name": "Dea",
         "post": "Secrétaire",
+        "picture": "blank.jpg"
+    },
+    {
+        "name": "Dr S. M. Movarekhi",
+        "post": "Médecin",
         "picture": "blank.jpg"
     }
 ]

@@ -125,6 +125,12 @@ section > h2{
     cursor: not-allowed;
 }
 
+hr.separator {
+    border: unset;
+    border-top: 2px solid #bbb;
+    margin: 10px 0px;
+  }
+
 /* ------ NAVBAR ------ */
 
 #nav-element[data-bg="visible"]{

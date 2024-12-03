@@ -1,5 +1,9 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 $configFile = './settings.json';
 $config = json_decode(file_get_contents($configFile), true);
 $vacances = $config['vacances'];
@@ -27,8 +31,8 @@ $workingHours = [
 $openHours = [
     1 => [['08:30', '13:00'], ['14:00', '18:00']], // Lundi
     2 => [['08:30', '13:00'], ['14:00', '18:00']], // Mardi
-    3 => [['08:30', '13:00'], ['14:00', '18:00']], // Mercredi
-    4 => [['08:30', '13:00'], ['14:00', '18:00']], // Jeudi
+    3 => [['08:30', '14:00']], // Mercredi
+    4 => [['08:30', '13:00']], // Jeudi
     5 => [['08:30', '13:00'], ['14:00', '18:00']], // Vendredi
 ];
 
@@ -98,74 +102,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-<section class="contact padding">
-    <h2>Contact</h2>
-    <div class="contact-container max-width section-container">
-        <div class="contact-top">
-
-            <div class="contact-top-left">
-                <div class="contact-adress">
-                    <h3>Adresses</h3>
-                    <h4>Consultations</h4>
-                    <p>15, Rue Lombard</p>
-                    <p>1205 Genève</p>
-                    <a href="https://maps.app.goo.gl/338kTmaU3WRHRvHM6" class="underline-link" target="_blank">Voir sur Google Maps</a>
-                    <h4>PMA (Procréation médicalement assistée)</h4>
-                    <p>BabyImpulse - Clinique des Grangettes</p>
-                    <p>Chemin des Grangettes 7</p>
-                    <p>1224 Chêne Bougeries</p>
-                    <a href="https://maps.app.goo.gl/JE6D6DEYLwPxookW6" class="underline-link" target="_blank">Voir sur Google Maps</a>
-                </div>
-                <div class="contact-coords">
-                    <h3>Coordonnées du cabinet</h3>
-                    <a href="tel:0223478646" class="underline-link">022 347 86 46</a></br>
-                    <a href="mailto:cabinet.lombard@hin.ch" class="underline-link">cabinet.lombard@hin.ch</a>
-                </div>
-            </div>
-            
-            <div class="contact-top-right">
-                <div class="phone-schedule">
-                    <h3>Horaires téléphoniques</h3>
-                    <h4>Lundi - Mardi - Vendredi</h4>
-                    <p>8h30 - 12h / 14h - 17h</p>
-                    <h4>Mercredi - Jeudi</h4>
-                    <p>8h30 - 12h</p>
-                    <?php
-                    // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
-                    if ($vacances) {
-                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Vacances</p>";
-                    }
-                    elseif (isAvailable($dayOfWeek, $currentTime, $workingHours)) {
-                        echo "<p class=\"contact-active\" id=\"joignable\">Joignable</p>";
-                    } else {
-                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Injoignable</p>";
-                    }
-                    ?>
-                </div>
-                <div class="consult-schedule">
-                    <h3>Horaires de consultation</h3>
-                    <h4>Lundi au Vendredi</h4>
-                    <p>8h30 - 13h30</p>
-                    <p>(pour patientes de fertilité)</p>
-                    <p>14h - 18h</p>
-                    <p>(pour la gynécologie-obstétrique)</p>
-                    <?php
-                    // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
-                    if ($vacances) {
-                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Vacances</p>";
-                    } elseif (isAvailable($dayOfWeek, $currentTime, $openHours)) {
-                        echo "<p class=\"contact-active\" id=\"ouvert\">Ouvert</p>";
-                    } else {
-                        echo "<p class=\"contact-inactive\" id=\"ferme\">Fermé</p>";
-                    }
-                    ?>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
 <section class="form padding">
     <h2>Formulaire</h3>
     <?php if ($mailSent) : ?>
@@ -196,4 +132,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
     <?php endif; ?>
+</section>
+
+<section class="contact padding">
+    <h2>Contact</h2>
+    <div class="contact-container max-width section-container">
+        <div class="contact-top">
+
+            <div class="contact-top-left">
+                <div class="consult-schedule">
+                    <h3>Horaires de consultation</h3>
+                    <hr class="separator">
+                    <p>(pour patientes de fertilité)</p>
+                    <h4>Lundi - Mardi - Jeudi - Vendredi</h4>
+                    <p>8h30 - 13h</p>
+                    <h4>Mercredi</h4>
+                    <p>8h30 - 14h</p>
+                    <hr class="separator">
+                    <p>(pour la gynécologie-obstétrique)</p>
+                    <h4>Lundi - Mardi - Vendredi</h4>
+                    <p>14h - 18h</p>
+                    <hr class="separator">
+                    <?php
+                    // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
+                    if ($vacances) {
+                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Vacances</p>";
+                    } elseif (isAvailable($dayOfWeek, $currentTime, $openHours)) {
+                        echo "<p class=\"contact-active\" id=\"ouvert\">Ouvert</p>";
+                    } else {
+                        echo "<p class=\"contact-inactive\" id=\"ferme\">Fermé</p>";
+                    }
+                    ?>
+                </div>
+                <div class="contact-coords">
+                    <h3>Coordonnées du cabinet</h3>
+                    <a href="tel:0223478646" class="underline-link">022 347 86 46</a></br>
+                    <a href="mailto:cabinet.lombard@hin.ch" class="underline-link">cabinet.lombard@hin.ch</a>
+                </div>
+            </div>
+            
+            <div class="contact-top-right">
+                <div class="phone-schedule">
+                    <h3>Horaires téléphoniques</h3>
+                    <h4>Lundi - Mardi - Vendredi</h4>
+                    <p>8h30 - 12h / 14h - 17h</p>
+                    <h4>Mercredi - Jeudi</h4>
+                    <p>8h30 - 12h</p>
+                    <?php
+                    // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
+                    if ($vacances) {
+                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Vacances</p>";
+                    }
+                    elseif (isAvailable($dayOfWeek, $currentTime, $workingHours)) {
+                        echo "<p class=\"contact-active\" id=\"joignable\">Joignable</p>";
+                    } else {
+                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Injoignable</p>";
+                    }
+                    ?>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
 </section>
