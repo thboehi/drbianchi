@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../global.css">
         <link rel="stylesheet" href="../pages.css">
-        <link rel="icon" type="image/x-icon" href="../img/logo.png">
+        <link rel="icon" type="image/x-icon" href="../favicon.png">
 
         <!-- Socials -->
         <meta content="<?php echo $title ?>" property="og:title">
