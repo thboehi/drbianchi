@@ -10,6 +10,7 @@ $compDir = '/components/';
 //Paramètres important du site Web
 $siteName = "Dr. Grace Bianchi";
 $siteDescription = "Cabinet de la Doctoresse Patrizia Grace Bianchi Movarekhi, spécialiste en Gynécologie-obstétrique opératoire, stérilité et fertilité. Nous offrons des traitements pour l'infertilité, le désir de grossesse, et la FIV - ICSI, avec une prise en charge personnalisée et des soins attentionnés.";
+$siteDescriptionEnglish = "Doctor Patrizia Grace Bianchi Movarekhi's practice, specializing in operative gynecology, sterility, and fertility. We offer treatments for infertility, pregnancy planning, and IVF - ICSI, with personalized care and attentive services.";
 $separator = " | ";
 
 //Cette partie est la plus importante, c'est le routeur, il permet de charger les éléments en fonction du lien dans la barre de navigation
@@ -20,6 +21,7 @@ switch ($request) {
         //Définir le titre de la page
         $title = $siteName . '' . $separator . "Accueil";
         $description = $siteDescription;
+        $descriptionEnglish = $siteDescriptionEnglish;
 
         //Charger le header, puis le contenu, puis le footer.
         require __DIR__ . $compDir . 'header.php';
@@ -32,6 +34,7 @@ switch ($request) {
         //Définir le titre de la page
         $title = $siteName . $separator . "Présentation";
         $description = $siteDescription;
+        $descriptionEnglish = $siteDescriptionEnglish;
 
         //Charger le header, puis le contenu, puis le footer.
         require __DIR__ . $compDir . 'header.php';
@@ -44,6 +47,7 @@ switch ($request) {
         //Définir le titre de la page
         $title = $siteName . $separator . "Contact";
         $description = $siteDescription;
+        $descriptionEnglish = $siteDescriptionEnglish;
 
         //Charger le header, puis le contenu, puis le footer.
         require __DIR__ . $compDir . 'header.php';
@@ -55,6 +59,7 @@ switch ($request) {
         //Définir le titre de la page
         $title = $siteName . $separator . "Configuration";
         $description = $siteDescription;
+        $descriptionEnglish = $siteDescriptionEnglish;
 
         //Charger le header, puis le contenu, puis le footer.
         require __DIR__ . $compDir . 'header.php';
@@ -66,6 +71,7 @@ switch ($request) {
         //Définir le titre de la page
         $title = $siteName . $separator . "Configuration";
         $description = $siteDescription;
+        $descriptionEnglish = $siteDescriptionEnglish;
 
         //Charger le header, puis le contenu, puis le footer.
         require __DIR__ . $compDir . 'header.php';
@@ -80,6 +86,7 @@ switch ($request) {
         //Définir le titre de la page
         $title = $siteName . $separator . "Erreur";
         $description = $siteDescription;
+        $descriptionEnglish = $siteDescriptionEnglish;
 
         //Charger le header, puis le contenu, puis le footer.
         require __DIR__ . $compDir . 'header.php';

@@ -13,7 +13,7 @@
                 <li>IIU (Inséminations intra-utérines)</li>
                 <li>DPI (Diagnostic pré-implantatoire)</li>
             </ul>
-            <a class="cta">En savoir plus...</a>
+            <a href="/about" class="cta">En savoir plus...</a>
         </div>
         <div class="about-right">
             <img src="../img/banner.jpg" alt="Oui">
