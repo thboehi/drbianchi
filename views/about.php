@@ -3,14 +3,14 @@
 <section id="about" class="about padding margin-first">
     <div class="section-container max-width about-container">
         <div class="about-left">
-            <h2>À Propos du cabinet</h2>
-            <p>La Dre Bianchi vous accompagne dans votre quête avec tout son savoir-faire et ses compétences professionnelles.</p>
-            <p>Le cabinet de groupe sur place permettra la prise en charge de toutes les problématiques gynécologiques et obstétricales associées si souhaité.</p>
-            <p>Spécialiste en médecine de la reproduction expérimentée et impliquée, Dr Bianchi associe à une formation scientifique et professionnelle très solide, une écoute et une sensibilité particulière à toutes les difficultés psychologiques inhérentes aux procédures de prises en charge, investigations et/ou de traitements.</p>
-            <p>La prise en charge est rapide, personnalisée et hautement spécialisée.</p>
-            <p>Les options sont toujours discutées avec les patient(e)s et les décisions thérapeutiques réévaluées tout au long du parcours.</p>
-            <p>Le Dr Bianchi enseigne à l'Université de Genève dans sa veste de Privat-docent à la Faculté de Médecine et participe à plusieurs congrès internationaux par année.</p>
-            <p>Elle a participé à plusieurs recherches scientifiques dans le domaine de la fertilité masculine et féminine en recevant plusieurs financements de la part de Fond National Suisse pour la Recherche Scientifique (FNRS).</p>
+            <h2>À Propos de nous</h2>
+            <p>Spécialiste de la fertilité, expérimentée et impliquée, Dre Bianchi associe une vaste formation scientifique et professionnelle à une attention particulière aux problématiques psychologiques et sociales inhérentes à la reproduction humaine.</p>
+            <p>Le personnel paramédical œuvre à l’établissement d’un environnement propice et serein, toujours à l’écoute des patient(e)s. La prise en charge est rapide, personnalisée et hautement spécialisée.</p>
+            <p>Toutes les options sont toujours discutées avec les patient(e)s et les décisions thérapeutiques réévaluées tout au long du parcours.</p>
+            <p>Le cabinet de groupe sur place permet la prise en charge de toutes les problématiques gynécologiques et obstétricales associées, si souhaité.</p>
+            <p>Ancien chef de clinique aux Hôpitaux Universitaires de Genève, la Dre Bianchi exerce son activité en privé depuis plus de dix ans. Elle enseigne à l'Université de Genève dans sa veste de Privat-Docent à la Faculté de Médecine et participe à de nombreux congrès internationaux par année. Elle est directrice médicale du laboratoire Babyimpulse depuis 2021.</p>
+            <p>Depuis 2025, elle fait partie du bord de la Société Suisse de Médecine de la Reproduction (SSMR).</p>
+            <p>Elle a participé à plusieurs recherches scientifiques dans le domaine de la fertilité féminine et masculine en recevant plusieurs financements de la part de Fond National Suisse pour la Recherche Scientifique (FNRS).</p>
         </div>
         <div class="about-right">
             <img src="../img/grace&evelina.jpg" alt="Oui">

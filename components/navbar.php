@@ -7,7 +7,7 @@ $currentPage = $_SERVER['REQUEST_URI'];
         <div class="navbar-left">
             <a href="/">
                 <img src="../img/logo.png" alt="Dr Bianchi">
-                <p>Grace Bianchi</p>
+                <p>Dre Grace Bianchi</p>
             </a>
         </div>
         <div class="navbar-right">

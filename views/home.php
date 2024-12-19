@@ -3,15 +3,17 @@
 <section id="about" class="about padding">
     <div class="max-width about-container section-invert">
         <div class="about-left">
-            <h2>La Clinique du Dr Bianchi</h2>
-            <p>Consultations de fertilité pour le couple ou pour célibataires</p>
+            <h2>La Clinique de la Dre Bianchi</h2>
+            <p>Consultations de fertilité</p>
             <ul>
                 <li>Bilan de fertilité</li>
                 <li>Prise en charge du désir de grossesse</li>
                 <li>Traitements de fertilité</li>
-                <li>FIV/ISCI</li>
+                <li>FIV/ICSI</li>
                 <li>IIU (Inséminations intra-utérines)</li>
                 <li>DPI (Diagnostic pré-implantatoire)</li>
+                <li>Cryoconservation des ovocytes</li>
+                <li>Cryoconservation des spermatozoïdes</li>
             </ul>
             <a href="/about" class="cta">En savoir plus...</a>
         </div>
@@ -41,8 +43,8 @@
     <div class="max-width about-container">
         <div class="about-left">
             <h2>BabyImpulse</h2>
-            <p>BabyImpulse est un Laboratoire de Biologie de la Reproduction dont la mission principale est d’aider les couples à concevoir un enfant et à réaliser leur projet parental. Découvrez notre ADN en cliquant ci-dessous.</p>
-            <a class="cta" href="https://babyimpulse.ch/a-propos/" target="_blank">Vers la clinique</a>
+            <p>BabyImpulse, notre laboratoire de référence, est un Laboratoire de Biologie de la Reproduction dont la mission principale est d’aider les couples à concevoir un enfant et à réaliser leur projet parental.</p>
+            <a class="cta" href="https://babyimpulse.ch/" target="_blank">Vers le labo</a>
         </div>
         <div class="about-right">
             <img src="../img/partner/babyimpulse-banner.jpeg" alt="Oui">

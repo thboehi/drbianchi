@@ -22,7 +22,7 @@
                         <img src="../img/logo.png" alt="Logo">
                         <h3>Grace Bianchi</h3>
                     </a>
-                    <p>Spécialiste en Gynécologie-obstrétrique</p>
+                    <p>Spécialiste FMH, Médecine de la reproduction, Gynécologie-Obstétrique</p>
                     <a href="tel:0223478646" class="underline-link">022 347 86 46</a>
                     <div class="footer-socials">
                         <a href="https://www.linkedin.com/in/grace-bianchi-67b26290/" target="_blank">

@@ -1,8 +1,13 @@
 [
     {
         "name": "Dre Grace Bianchi",
-        "post": "Médecin spécialiste",
+        "post": "Spécialiste FMH, Médecine de la reproduction, Gynécologie-Obstétrique",
         "picture": "grace.jpg"
+    },
+    {
+        "name": "Dr S. M. Movarekhi",
+        "post": "Spécialiste FMH, Gynécologie-Obstétrique",
+        "picture": "smmovarekhi.jpg"
     },
     {
         "name": "Evelina",
@@ -13,10 +18,5 @@
         "name": "Dea",
         "post": "Secrétaire",
         "picture": "blank.jpg"
-    },
-    {
-        "name": "Dr S. M. Movarekhi",
-        "post": "Médecin",
-        "picture": "smmovarekhi.jpg"
     }
 ]
