@@ -20,7 +20,7 @@ $dayOfWeek = date('N'); // 1 (pour lundi) à 7 (pour dimanche)
 $currentTime = date('H:i');
 
 // Définit les plages horaires pour chaque jour
-$workingHours = [
+$phoneHours = [
     1 => [['08:30', '12:00'], ['14:00', '17:00']], // Lundi
     2 => [['08:30', '12:00'], ['14:00', '17:00']], // Mardi
     3 => [['08:30', '12:00']],                     // Mercredi
@@ -266,7 +266,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if ($vacances) {
                         echo "<p class=\"contact-inactive\" id=\"injoignable\">Vacances</p>";
                     }
-                    elseif (isAvailable($dayOfWeek, $currentTime, $workingHours)) {
+                    elseif (isAvailable($dayOfWeek, $currentTime, $phoneHours)) {
                         echo "<p class=\"contact-active\" id=\"joignable\">Joignable</p>";
                     } else {
                         echo "<p class=\"contact-inactive\" id=\"injoignable\">Injoignable</p>";
