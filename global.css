@@ -182,7 +182,7 @@ hr.separator {
 }
 
 .navbar-left a img{
-    width: 70px;
+    width: 60px;
     aspect-ratio: 1;
     object-fit: contain;
     object-position: center;

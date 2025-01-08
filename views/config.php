@@ -31,7 +31,7 @@ if (isset($_POST['password'])) {
 // Gestion de la déconnexion
 if (isset($_GET['logout'])) {
     session_destroy();
-    header('Location: config');
+    header('Location: /');
     exit();
 }
 
