@@ -10,6 +10,7 @@ $vacances = $config['vacances'];
 
 $mailSent = false;
 $errorMessage = "";
+$mailTo = "cabinet.bianchi@hotmail.com";
 
 require "./components/hero.php";
 
@@ -77,7 +78,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         //Check si le message fait au moins 10 caractères
         if (strlen($message) >= 10){
-            $to = "bianchitest@thbo.ch";
             $subject = "Nouveau message de $name (depuis le site drbianchi.ch)";
 
             // Récupérer le domaine actuel (par exemple, https://example.com)
@@ -167,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
             // Retirer le commentaire à la ligne suivante pour activer la fonction d'envoi de mail
-            mail($to, $subject, $body, $headers);
+            mail($mailTo, $subject, $body, $headers);
             $mailSent = true;
         } else {
             $errorMessage = "Message trop court.";
