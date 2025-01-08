@@ -224,7 +224,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <div class="contact-top-left">
                 <div class="consult-schedule">
-                    <h3>Horaires de consultation</h3>
+                    <h3>Horaires de consultations</h3>
                     <hr class="separator">
                     <p>(pour patientes de fertilité)</p>
                     <h4>Lundi - Mardi - Jeudi - Vendredi</h4>

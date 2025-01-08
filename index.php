@@ -9,8 +9,8 @@ $compDir = '/components/';
 
 //Paramètres important du site Web
 $siteName = "Dr. Grace Bianchi";
-$siteDescription = "Cabinet de la Doctoresse Patrizia Grace Bianchi Movarekhi, spécialiste en Gynécologie-obstétrique opératoire, stérilité et fertilité. Nous offrons des traitements pour l'infertilité, le désir de grossesse, et la FIV - ICSI, avec une prise en charge personnalisée et des soins attentionnés.";
-$siteDescriptionEnglish = "Doctor Patrizia Grace Bianchi Movarekhi's practice, specializing in operative gynecology, sterility, and fertility. We offer treatments for infertility, pregnancy planning, and IVF - ICSI, with personalized care and attentive services.";
+$siteDescription = "Cabinet de la Doctoresse Patrizia Grace Bianchi Movarekhi, spécialiste en gynécologie-obstétrique opératoire, stérilité, infertilité, et fertilité. Nous proposons des traitements personnalisés pour le désir de grossesse, la FIV - ICSI, la vitrification des gamètes, la conservation des ovocytes et du sperme, avec une prise en charge attentive.";
+$siteDescriptionEnglish = "Doctor Patrizia Grace Bianchi Movarekhi's practice, specializing in operative gynecology, sterility, infertility, and fertility. We offer personalized treatments for pregnancy planning, IVF - ICSI, gamete vitrification, egg and sperm preservation, with attentive care.";
 $separator = " | ";
 
 //Cette partie est la plus importante, c'est le routeur, il permet de charger les éléments en fonction du lien dans la barre de navigation
