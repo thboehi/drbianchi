@@ -58,7 +58,7 @@
                 </div>
             </div>
             <div class="footer-copyright">
-                <p>© 2024 Dr. Bianchi</p>
+                <p>© 2024-<?php echo date("Y"); ?> | Dre P. Grace Bianchi Movarekhi</p>
                 <p>Site web réalisé par <a class="underline-link" target=(_blank) href="https://thbo.ch">THBO</a></p>
             </div>
         </footer>
