@@ -1,7 +1,10 @@
 :root{
     --size: clamp(10rem, 1rem + 40vmin, 30rem);
     --gap: calc(var(--size) / 14);
-    --duration: 30s;
+    /* Changer la vitesse de l'animation de l'album, plus c'est haut, plus c'est lent. N'oublie de changer dans la media query max 768px */
+    /* Par défaut 20s desktop et 40s mobile */
+    /* Cette valeur dépend du nombre d'image aussi */
+    --duration: 20s;
     --scroll-start: 0;
     --scroll-end: calc(-100% - var(--gap));
 }
@@ -11,10 +14,8 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
-    align-items: center;
     justify-content: center;
     padding-top: 50px;
-    padding-bottom: 50px;
     flex-wrap: wrap;
 }
 
@@ -22,7 +23,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     background: var(--white);
     padding: 20px;
     border-radius: 12px;
@@ -38,7 +38,7 @@
     width: 210px;
     height: auto;
     border-radius: 6px;
-    aspect-ratio: 9/16;
+    aspect-ratio: 12/16;
     object-fit: cover;
     object-position: center;
     margin-bottom: 10px;
@@ -57,6 +57,11 @@
 
 .person-container:hover > .person-img-container img{
     transform: scale(1.05);
+}
+
+.person-container > p {
+    max-width: 210px;
+    text-align: center;
 }
 
 /* -------- HERO -------- */
@@ -91,7 +96,7 @@
 
 .hero-text-container > h1{
     font-family: "Della Respira", serif;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 
 .hero-text-container > a{
@@ -111,7 +116,7 @@
     flex-direction: row;
     gap: 60px;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .section-invert{
@@ -128,7 +133,7 @@
     border-radius: 15px;
 }
 .about-left{
-    width: calc(100vw / 3);
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -149,7 +154,7 @@
     margin-bottom: 0.5rem;
 }
 .about-left > ul > li::before{
-    content: "";
+    content: "- ";
 }
 
 .partner{
@@ -179,6 +184,7 @@
 }
 /* ------- ALBUM ------- */
 .album{
+    /* overflow: auto; */
     overflow: hidden;
     mask-image: linear-gradient(
         var(--mask-direction, to right),
@@ -199,8 +205,8 @@
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    min-width: 100%;
+    gap: 10px;
+    /* min-width: 100%; */
     gap: var(--gap);
     animation: scroll-x var(--duration) linear infinite;
 }
@@ -250,7 +256,6 @@
 }
 
 .form{
-    padding-top: 50px;
     padding-bottom: 50px;
 }
 .form-container form{
@@ -320,6 +325,151 @@
     cursor: not-allowed;
 }
 
+/* CONFIG */
+.config {
+    background: var(--white-darker);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.config-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.config-form {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.config-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.config-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.config-logout {
+    background: var(--black);
+}
+
+/* Switch styling */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--color2);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* 404 */
+/* css/404.css */
+.error-404 {
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    /* padding-top: 50px; */
+    padding-bottom: 50px;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    background: var(--white-darker);
+    padding: 60px;
+    border-radius: 15px;
+    max-width: 600px;
+}
+
+.error-container h1 {
+    font-family: "Merriweather", serif;
+    font-size: 6rem;
+    color: var(--color2);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.error-container h2 {
+    font-family: "Merriweather", serif;
+    font-size: 2rem;
+    color: var(--black);
+}
+
+.error-container p {
+    color: var(--black);
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+
+.error-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.error-contact {
+    background: var(--black);
+}
+
 
 @media screen and (max-width: 768px) {
     .hero-text-container{
@@ -329,6 +479,10 @@
         flex-direction: column;
         justify-content: stretch;
     }
+    .about{
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
     .about-right > img{
         width: 100%;
         max-width: none;
@@ -336,6 +490,37 @@
     }
     .about-left{
         width: unset;
+    }
+    .album{
+        mask-image: none;
+    }
+    :root{
+        --duration: 40s;
+    }
+    .config-form {
+        padding: 20px;
+    }
+
+    .config-buttons {
+        flex-direction: column;
+    }
+    .error-container {
+        padding: 40px 20px;
+    }
+
+    .error-container h1 {
+        font-size: 4rem;
+    }
+
+    .error-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .error-buttons {
+        flex-direction: column;
+    }
+    .person-img-container{
+        aspect-ratio: 1/1;
     }
 }
 

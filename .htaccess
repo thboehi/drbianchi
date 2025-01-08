@@ -1,5 +1,16 @@
 RewriteEngine on
 RewriteBase /
+
+# Bloquer l'accès aux fichiers .json
+<FilesMatch "\.json$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Redirection des erreurs 404 vers la page personnalisée
+ErrorDocument 404 /404
+
+# Règles de réécriture existantes
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [L,QSA]

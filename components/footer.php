@@ -1,17 +1,17 @@
         <footer id="footer">
-            <div class="footer-container max-width padding">
+            <div class="footer-container max-width">
                 <div class="footer-left">
                     
                     <div class="footer-adress">
                         <div>
-                            <h4>Consultations au cabinet</h4>
+                            <h4>Consultations</h4>
                             <p>15, Rue Lombard</p>
                             <p>1205 Genève</p>
                             <a href="https://maps.app.goo.gl/338kTmaU3WRHRvHM6" class="underline-link" target="_blank">Voir sur Google Maps</a>
                             
                         </div>
                         <div>
-                            <h4>PMA (Procréation médicalement assistée)</h4>
+                            <h4>Traitements de PMA</h4>
                             <p>BabyImpulse - Clinique des Grangettes</p>
                             <p>Chemin des Grangettes 7</p>
                             <p>1224 Chêne Bougeries</p>
@@ -22,7 +22,7 @@
                         <img src="../img/logo.png" alt="Logo">
                         <h3>Grace Bianchi</h3>
                     </a>
-                    <p>Spécialiste en Gynécologie-obstrétrique opératoire.</p>
+                    <p>Spécialiste FMH, Médecine de la reproduction, Gynécologie-Obstétrique</p>
                     <a href="tel:0223478646" class="underline-link">022 347 86 46</a>
                     <div class="footer-socials">
                         <a href="https://www.linkedin.com/in/grace-bianchi-67b26290/" target="_blank">
@@ -45,6 +45,7 @@
                             <li><a class="underline-link" href="/">Accueil</a></li>
                             <li><a class="underline-link" href="/about">Présentation</a></li>
                             <li><a class="underline-link" href="/contact">Contact</a></li>
+                            <li><a class="underline-link" href="/config">Admin</a></li>
                         </ul>
                     </div>
                     <div>
@@ -58,7 +59,7 @@
             </div>
             <div class="footer-copyright">
                 <p>© 2024 Dr. Bianchi</p>
-                <p>Site web réalisé par <a class="underline-link" target=(_blank) href="https://thbo.ch">Thomas Boehi</a></p>
+                <p>Site web réalisé par <a class="underline-link" target=(_blank) href="https://thbo.ch">THBO</a></p>
             </div>
         </footer>
         <script src="../js/index.js" async defer></script>

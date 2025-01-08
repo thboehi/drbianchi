@@ -4,11 +4,12 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title><?php echo $title ?></title>
-        <meta name="description" content="<?php echo $description ?>">
+        <meta name="description" lang="fr" content="<?php echo $description ?>">
+        <meta name="description" lang="en" content="<?php echo $descriptionEnglish ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../global.css">
-        <link rel="stylesheet" href="../pages.css">
-        <link rel="icon" type="image/x-icon" href="../img/logo.png">
+        <link rel="stylesheet" href="../global.css?v=3">
+        <link rel="stylesheet" href="../pages.css?v=3">
+        <link rel="icon" type="image/x-icon" href="../favicon.png">
 
         <!-- Socials -->
         <meta content="<?php echo $title ?>" property="og:title">

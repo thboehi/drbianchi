@@ -1,5 +1,13 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$configFile = './settings.json';
+$config = json_decode(file_get_contents($configFile), true);
+$vacances = $config['vacances'];
+
 $mailSent = false;
 $errorMessage = "";
 
@@ -12,7 +20,7 @@ $dayOfWeek = date('N'); // 1 (pour lundi) à 7 (pour dimanche)
 $currentTime = date('H:i');
 
 // Définit les plages horaires pour chaque jour
-$workingHours = [
+$phoneHours = [
     1 => [['08:30', '12:00'], ['14:00', '17:00']], // Lundi
     2 => [['08:30', '12:00'], ['14:00', '17:00']], // Mardi
     3 => [['08:30', '12:00']],                     // Mercredi
@@ -21,28 +29,40 @@ $workingHours = [
 ];
 
 $openHours = [
-    1 => [['08:30', '13:00']], // Lundi
-    2 => [['08:30', '13:00']], // Mardi
-    3 => [['08:30', '13:00']], // Mercredi
+    1 => [['08:30', '13:00'], ['14:00', '18:00']], // Lundi
+    2 => [['08:30', '13:00'], ['14:00', '18:00']], // Mardi
+    3 => [['08:30', '14:00']], // Mercredi
     4 => [['08:30', '13:00']], // Jeudi
-    5 => [['08:30', '13:00']], // Vendredi
+    5 => [['08:30', '13:00'], ['14:00', '18:00']], // Vendredi
 ];
 
 // Fonction pour vérifier si l'heure actuelle est dans une plage horaire donnée
 function isWithinTimeRange($currentTime, $timeRange) {
-    list($startTime, $endTime) = $timeRange;
-    return ($currentTime >= $startTime && $currentTime <= $endTime);
+    global $vacances;
+    if ($vacances) {
+        return false;
+    } else {
+        list($startTime, $endTime) = $timeRange;
+        return ($currentTime >= $startTime && $currentTime <= $endTime);
+    }
+    
 }
 
 // Vérifie si l'heure actuelle est dans une des plages horaires du jour actuel
 function isAvailable($dayOfWeek, $currentTime, $hours) {
-    if (isset($hours[$dayOfWeek])) {
-        foreach ($hours[$dayOfWeek] as $timeRange) {
-            if (isWithinTimeRange($currentTime, $timeRange)) {
-                return true;
+    global $vacances;
+    if ($vacances) {
+        return false;
+    } else {
+        if (isset($hours[$dayOfWeek])) {
+            foreach ($hours[$dayOfWeek] as $timeRange) {
+                if (isWithinTimeRange($currentTime, $timeRange)) {
+                    return true;
+                }
             }
         }
     }
+    
     return false;
 }
 
@@ -51,20 +71,103 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST["name"];
     $email = $_POST["email"];
     $phone = $_POST["phone"];
-    $message = $_POST["message"];
+    $message = nl2br(htmlspecialchars($_POST["message"]));
 
     //Check si l'email est valide
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         //Check si le message fait au moins 10 caractères
         if (strlen($message) >= 10){
-            // Envoi de l'email
             $to = "bianchitest@thbo.ch";
-            $subject = "Nouveau message de $name";
-            $body = "Nom: $name\nEmail: $email\nTéléphone: $phone\nMessage:\n$message";
-            $headers = "From: $email";
+            $subject = "Nouveau message de $name (depuis le site drbianchi.ch)";
 
-            // Retirer le commentaire à la ligne suivante pour activer la fonction d'envoi de mail 
-            // mail($to, $subject, $body, $headers);
+            // Récupérer le domaine actuel (par exemple, https://example.com)
+            $domain = ($_SERVER['HTTPS'] ? "https://" : "http://") . $_SERVER['HTTP_HOST'];
+
+            $body = "
+            <!DOCTYPE html>
+            <html lang='fr'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        background-color: #f9f9f9;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .email-container {
+                        max-width: 600px;
+                        margin: 20px auto;
+                        background: #ffffff;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    }
+                    .header {
+                        background: #2EB6AB;
+                        color: #ffffff;
+                        text-align: center;
+                        padding: 20px;
+                    }
+                    .header img {
+                        max-width: 100px;
+                        margin-bottom: 10px;
+                    }
+                    .header h1 {
+                        margin: 0;
+                        font-size: 1.5rem;
+                    }
+                    .content {
+                        padding: 20px;
+                        color: #333333;
+                    }
+                    .content p {
+                        margin: 10px 0;
+                    }
+                    .content strong {
+                        color: #2EB6AB;
+                    }
+                    .footer {
+                        background: #f1f1f1;
+                        text-align: center;
+                        padding: 10px;
+                        font-size: 0.9rem;
+                        color: #666666;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class='email-container'>
+                    <div class='header'>
+                        <a href='$domain'>
+                            <img src='$domain/img/logo.png' alt='Logo Dre Bianchi'>
+                        </a>
+                        <h1>Nouveau formulaire de contact</h1>
+                        <h4>de $name</h4>
+                    </div>
+                    <div class='content'>
+                        <p><strong>Nom</strong></p>
+                        <p>$name</p>
+                        <p><strong>Email</strong></p>
+                        <p>$email</p>
+                        <p><strong>Téléphone</strong></p>
+                        <p>$phone</p>
+                        <p><strong>Message</strong></p>
+                        <p>$message</p>
+                    </div>
+                    <div class='footer'>
+                        <p>Envoyé depuis le formulaire de contact du site.</p>
+                    </div>
+                </div>
+            </body>
+            </html>";
+
+            $headers = "From: $email\r\n";
+            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+            // Retirer le commentaire à la ligne suivante pour activer la fonction d'envoi de mail
+            mail($to, $subject, $body, $headers);
             $mailSent = true;
         } else {
             $errorMessage = "Message trop court.";
@@ -81,66 +184,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-
-<section class="contact padding">
-    <h2>Contact</h2>
-    <div class="contact-container max-width section-container">
-        <div class="contact-top">
-
-            <div class="contact-top-left">
-                <div class="contact-adress">
-                    <h3>Adresses</h3>
-                    <h4>Consultations au cabinet</h4>
-                    <p>15, Rue Lombard</p>
-                    <p>1205 Genève</p>
-                    <a href="https://maps.app.goo.gl/338kTmaU3WRHRvHM6" class="underline-link" target="_blank">Voir sur Google Maps</a>
-                    <h4>PMA (Procréation médicalement assistée)</h4>
-                    <p>BabyImpulse - Clinique des Grangettes</p>
-                    <p>Chemin des Grangettes 7</p>
-                    <p>1224 Chêne Bougeries</p>
-                    <a href="https://maps.app.goo.gl/JE6D6DEYLwPxookW6" class="underline-link" target="_blank">Voir sur Google Maps</a>
-                </div>
-                <div class="contact-coords">
-                    <h3>Coordonnées du cabinet</h3>
-                    <a href="tel:0223478646" class="underline-link">022 347 86 46</a></br>
-                    <a href="mailto:cabinet.lombard@hin.ch" class="underline-link">cabinet.lombard@hin.ch</a>
-                </div>
-            </div>
-            
-            <div class="contact-top-right">
-                <div class="phone-schedule">
-                    <h3>Horaires téléphoniques</h3>
-                    <h4>Lundi - Mardi - Vendredi</h4>
-                    <p>8h30 - 12h / 14h - 17h</p>
-                    <h4>Mercredi - Jeudi</h4>
-                    <p>8h30 - 12h</p>
-                    <?php
-                    // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
-                    if (isAvailable($dayOfWeek, $currentTime, $workingHours)) {
-                        echo "<p class=\"contact-active\" id=\"joignable\">Joignable</p>";
-                    } else {
-                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Injoignable</p>";
-                    }
-                    ?>
-                </div>
-                <div class="consult-schedule">
-                    <h3>Horaires de consultation</h3>
-                    <h4>Lundi au Vendredi</h4>
-                    <p>8h30 - 13h</p>
-                    <?php
-                    // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
-                    if (isAvailable($dayOfWeek, $currentTime, $openHours)) {
-                        echo "<p class=\"contact-active\" id=\"ouvert\">Ouvert</p>";
-                    } else {
-                        echo "<p class=\"contact-inactive\" id=\"ferme\">Fermé</p>";
-                    }
-                    ?>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
 
 <section class="form padding">
     <h2>Formulaire</h3>
@@ -172,4 +215,67 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
     <?php endif; ?>
+</section>
+
+<section class="contact padding">
+    <h2>Contact</h2>
+    <div class="contact-container max-width section-container">
+        <div class="contact-top">
+
+            <div class="contact-top-left">
+                <div class="consult-schedule">
+                    <h3>Horaires de consultations</h3>
+                    <hr class="separator">
+                    <p>(pour patientes de fertilité)</p>
+                    <h4>Lundi - Mardi - Jeudi - Vendredi</h4>
+                    <p>8h30 - 13h</p>
+                    <h4>Mercredi</h4>
+                    <p>8h30 - 14h</p>
+                    <hr class="separator">
+                    <p>(pour la gynécologie-obstétrique)</p>
+                    <h4>Lundi - Mardi - Vendredi</h4>
+                    <p>14h - 18h</p>
+                    <hr class="separator">
+                    <?php
+                    // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
+                    if ($vacances) {
+                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Vacances</p>";
+                    } elseif (isAvailable($dayOfWeek, $currentTime, $openHours)) {
+                        echo "<p class=\"contact-active\" id=\"ouvert\">Ouvert</p>";
+                    } else {
+                        echo "<p class=\"contact-inactive\" id=\"ferme\">Fermé</p>";
+                    }
+                    ?>
+                </div>
+                <div class="contact-coords">
+                    <h3>Coordonnées du cabinet</h3>
+                    <a href="tel:0223478646" class="underline-link">022 347 86 46</a></br>
+                    <a href="mailto:cabinet.lombard@hin.ch" class="underline-link">cabinet.lombard@hin.ch</a>
+                </div>
+            </div>
+            
+            <div class="contact-top-right">
+                <div class="phone-schedule">
+                    <h3>Horaires téléphoniques</h3>
+                    <h4>Lundi - Mardi - Vendredi</h4>
+                    <p>8h30 - 12h / 14h - 17h</p>
+                    <h4>Mercredi - Jeudi</h4>
+                    <p>8h30 - 12h</p>
+                    <?php
+                    // Affiche "Joignable" ou "Injoignable" en fonction de la disponibilité
+                    if ($vacances) {
+                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Vacances</p>";
+                    }
+                    elseif (isAvailable($dayOfWeek, $currentTime, $phoneHours)) {
+                        echo "<p class=\"contact-active\" id=\"joignable\">Joignable</p>";
+                    } else {
+                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Injoignable</p>";
+                    }
+                    ?>
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
 </section>
