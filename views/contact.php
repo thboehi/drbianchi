@@ -46,7 +46,6 @@ function isWithinTimeRange($currentTime, $timeRange) {
         list($startTime, $endTime) = $timeRange;
         return ($currentTime >= $startTime && $currentTime <= $endTime);
     }
-    
 }
 
 // Vérifie si l'heure actuelle est dans une des plages horaires du jour actuel
