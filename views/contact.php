@@ -242,7 +242,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     } elseif (isAvailable($dayOfWeek, $currentTime, $openHours)) {
                         echo "<p class=\"contact-active\" id=\"ouvert\">Ouvert</p>";
                     } else {
-                        echo "<p class=\"contact-inactive\" id=\"ferme\">Fermé</p>";
+                        echo "<p class=\"contact-inactive\" id=\"ferme\">Actuellement fermé</p>";
                     }
                     ?>
                 </div>
@@ -268,7 +268,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     elseif (isAvailable($dayOfWeek, $currentTime, $phoneHours)) {
                         echo "<p class=\"contact-active\" id=\"joignable\">Joignable</p>";
                     } else {
-                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Injoignable</p>";
+                        echo "<p class=\"contact-inactive\" id=\"injoignable\">Actuellement fermé</p>";
                     }
                     ?>
                 </div>
