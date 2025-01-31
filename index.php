@@ -9,8 +9,8 @@ $compDir = '/components/';
 
 //Paramètres important du site Web
 $siteName = "Dr. Grace Bianchi | Centre de procréation médicalement assistée";
-$siteDescription = "Centre de procréation médicalement assistée (PMA) de la Doctoresse Patrizia Grace Bianchi Movarekhi, spécialiste en gynécologie-obstétrique opératoire, stérilité, infertilité, et fertilité. Nous proposons des traitements personnalisés pour le désir de grossesse, la FIV - ICSI, la vitrification des gamètes, la conservation des ovocytes et du sperme, avec une prise en charge attentive";
-$siteDescriptionEnglish = "Assisted reproductive technology (ART) center led by Doctor Patrizia Grace Bianchi Movarekhi, specialist in operative gynecology, sterility, infertility, and fertility. We offer personalized treatments for pregnancy planning, IVF - ICSI, gamete vitrification, egg preservation, and sperm preservation, with attentive care.";
+$siteDescription = "Centre de procréation médicalement assistée (PMA) de la Doctoresse Patrizia Grace Bianchi Movarekhi à Genève, spécialiste en gynécologie-obstétrique opératoire, stérilité, infertilité, et fertilité. Nous proposons des traitements personnalisés pour le désir de grossesse, la FIV - ICSI, la vitrification des gamètes, la conservation des ovocytes et du sperme, avec une prise en charge attentive";
+$siteDescriptionEnglish = "Assisted reproductive technology (ART) center led by Doctor Patrizia Grace Bianchi Movarekhi in Geneva, specialist in operative gynecology, sterility, infertility, and fertility. We offer personalized treatments for pregnancy planning, IVF - ICSI, gamete vitrification, egg preservation, and sperm preservation, with attentive care.";
 $separator = " | ";
 
 //Cette partie est la plus importante, c'est le routeur, il permet de charger les éléments en fonction du lien dans la barre de navigation

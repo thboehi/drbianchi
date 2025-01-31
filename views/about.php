@@ -4,7 +4,7 @@
     <div class="section-container max-width about-container">
         <div class="about-left">
             <h2>À Propos de nous</h2>
-            <p>Spécialiste de la fertilité, expérimentée et impliquée, Dre Bianchi associe une vaste formation scientifique et professionnelle à une attention particulière aux problématiques psychologiques et sociales inhérentes à la reproduction humaine.</p>
+            <p>Situé à Genève, notre cabinet est spécialisé en fertilité. Expérimentée et impliquée, Dre Bianchi associe une vaste formation scientifique et professionnelle à une attention particulière aux problématiques psychologiques et sociales inhérentes à la reproduction humaine.</p>
             <p>Le personnel paramédical œuvre à l’établissement d’un environnement propice et serein, toujours à l’écoute des patient(e)s. La prise en charge est rapide, personnalisée et hautement spécialisée.</p>
             <p>Toutes les options sont toujours discutées avec les patient(e)s et les décisions thérapeutiques réévaluées tout au long du parcours.</p>
             <p>Le cabinet de groupe sur place permet la prise en charge de toutes les problématiques gynécologiques et obstétricales associées, si souhaité.</p>
