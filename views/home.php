@@ -5,6 +5,7 @@
         <div class="about-left">
             <h2>La Clinique de la Dre Bianchi</h2>
             <p>Consultations de fertilité à Genève</p>
+            <!-- Ajouter le même effet que sur le site taxi c7 -->
             <ul>
                 <li>Bilan de fertilité</li>
                 <li>Prise en charge du désir de grossesse</li>
