@@ -1,10 +1,10 @@
 <?php require "./components/hero.php" ?>
 
 <section id="about" class="about padding">
-    <div class="max-width about-container section-invert">
+    <div class="max-width about-container">
         <div class="about-left">
             <h2>La Clinique de la Dre Bianchi</h2>
-            <p>Consultations de fertilité à Genève</p>
+            <h3>Consultations de fertilité à Genève</h3>
             <!-- Ajouter le même effet que sur le site taxi c7 -->
             <ul>
                 <li>Bilan de fertilité</li>
@@ -18,23 +18,20 @@
             </ul>
             <a href="/about" class="cta">En savoir plus...</a>
         </div>
-        <div class="about-right">
+        <!-- <div class="about-right">
             <img src="../img/banner.jpg" alt="Oui">
-        </div>
+        </div> -->
     </div>
 </section>
 
 <section id="album" class="album">
 
+    <div class="album-controls">
+        <button class="album-buttons button-previous" onclick="prevImage()"></button>
+        <button class="album-buttons button-next" onclick="nextImage()"></button>
+    </div>
+
     <div class="album-content">
-        <?php require "./components/album.php"?>
-    </div>
-
-    <div class="album-content2">
-        <?php require "./components/album.php"?>
-    </div>
-
-    <div class="album-content2">
         <?php require "./components/album.php"?>
     </div>
 

@@ -29,6 +29,11 @@ h1, h2, h3, h4, h5 {
     font-optical-sizing: auto;
     font-weight: 750;
     font-style: normal;
+    text-transform: uppercase;
+}
+
+h1{
+    font-weight: 900;
 }
 
 ::selection{
@@ -103,7 +108,7 @@ a{
     left: 0;
     width: 100%;
     height: 2px;
-    background: var(--color2);
+    background: var(--black);
     transform: translateY(100%);
     transition: transform 300ms ease-out, opacity 300ms ease-out;
     opacity: 0;
@@ -151,17 +156,20 @@ hr.separator {
 #nav-element[data-bg="visible"] .burger-line{
     background: var(--black);
 }
+#nav-element[data-bg="visible"]{
+    background: var(--white);
+}
 #nav-element[data-view="hidden"]{
     transform: translateY(-100%);
-    transition: background 600ms ease-out, transform 600ms var(--ease-slow-fast);
+    transition: background 120ms ease-out, transform 600ms var(--ease-slow-fast);
 }
 #nav-element{
     position: fixed;
     top: 0; left: 0;
-    background: var(--white);
+    background: transparent;
     padding: 0px 24px;
     width: 100%;
-    transition: background 600ms ease-out, transform 600ms var(--ease-slow-fast-slow), color 300ms ease-out;
+    transition: background 120ms ease-out, transform 600ms var(--ease-slow-fast-slow), color 300ms ease-out;
     height: auto;
     color: var(--black);
     z-index: 10;

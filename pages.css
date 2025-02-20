@@ -111,10 +111,10 @@
     max-width: 800px;
     min-width: 250px;
     position: absolute;
-    bottom: 0; right: -15%;
+    bottom: 0; right: -13%;
     transform-origin: bottom right;
     filter: drop-shadow(-10px -0px 20px rgba(0,0,0,0.2));
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.8) 75%, rgba(0, 0, 0, 0) 100%);
+    /* mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.8) 75%, rgba(0, 0, 0, 0) 100%); */
 }
 
 /* -------- ABOUT -------- */
@@ -130,12 +130,11 @@
     flex-direction: row;
     gap: 60px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .section-invert{
     flex-direction: row-reverse;
-
 }
 
 .about-right > img{
@@ -151,7 +150,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: flex-start;
+    align-items: center;
 }
 .about-left > h2{
     font-weight: 700;
@@ -160,14 +159,26 @@
 .about-left > p{
     text-align: justify;
 }
+.about-left ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin: 20px 0;
+}
 
 .about-left > ul > li{
     list-style: none;
-    font-style: italic;
     margin-bottom: 0.5rem;
+    cursor: default;
+    transition: opacity 120ms ease-in-out, font-weight 120ms ease-in-out;
 }
-.about-left > ul > li::before{
-    content: "- ";
+.about-left > ul:hover > li{
+    opacity: 0.5;
+}
+.about-left > ul > li:hover{
+    opacity: 1;
+    font-weight: 700;
 }
 
 .partner{
@@ -199,37 +210,55 @@
 .album{
     /* overflow: auto; */
     overflow: hidden;
-    mask-image: linear-gradient(
-        var(--mask-direction, to right),
-        hsl(0 0% 0% / 0),
-        hsl(0 0% 0% / 1) 20%,
-        hsl(0 0% 0% / 1) 80%,
-        hsl(0 0% 0% / 0)
-      );
-    padding-top: 100px;
-    padding-bottom: 100px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: var(--gap);
+    width: 100%;
+    height: 100dvh;
+    height: 100vh;
+    position: relative;
 }
 
-.album-content, .album-content2{
-    flex-shrink: 0;
+.album-controls{
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
     display: flex;
-    align-items: center;
-    gap: 10px;
-    /* min-width: 100%; */
-    gap: var(--gap);
-    animation: scroll-x var(--duration) linear infinite;
+    justify-content: space-between;
+}
+.album-buttons{
+    height: 100%;
+    border: none;
+    width: 25%;
+    background: transparent;
+    transition: background 300ms ease-in-out;
+}
+.album-buttons:hover{
+    background: #1d1d1d;
+}
+
+.button-previous{
+    mask-image: linear-gradient(-90deg, rgba(0,0,0,0), rgba(0,0,0,0.2));
+    cursor: url(./img/icons/chevron-left.svg), auto;
+}
+.button-next{
+    mask-image: linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0.2));
+    cursor: url(./img/icons/chevron-right.svg), auto;
+}
+
+.album-content{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
 }
 
 .album-img {
-    aspect-ratio: 3/2;
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100dvh;
+    height: 100vh;
     object-fit: cover;
     object-position: center;
-    height: 240px;
-    border-radius: 15px;
     user-select: none;
     pointer-events: none;
 }
