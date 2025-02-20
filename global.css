@@ -153,9 +153,6 @@ hr.separator {
 /* ------ NAVBAR ------ */
 
 
-#nav-element[data-bg="visible"] .burger-line{
-    background: var(--black);
-}
 #nav-element[data-bg="visible"]{
     background: var(--white);
 }
@@ -271,7 +268,7 @@ hr.separator {
     display: block;
     width: 20px;
     height: 3px;
-    background: var(--white);
+    background: var(--black);
     transition: transform 600ms ease-out, background 600ms ease-out;
 }
 
@@ -395,6 +392,9 @@ hr.separator {
         text-shadow: none;
     }
     #nav-menu{
+        display: none;
+    }
+    .navbar-left a p {
         display: none;
     }
     .burger-button{

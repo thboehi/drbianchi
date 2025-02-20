@@ -7,8 +7,8 @@
         <meta name="description" lang="fr" content="<?php echo $description ?>">
         <meta name="description" lang="en" content="<?php echo $descriptionEnglish ?>">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../global.css?v=4">
-        <link rel="stylesheet" href="../pages.css?v=4">
+        <link rel="stylesheet" href="../global.css?v=4.0.1">
+        <link rel="stylesheet" href="../pages.css?v=4.0.1">
         <link rel="icon" type="image/x-icon" href="../favicon.png">
 
         <!-- Socials -->

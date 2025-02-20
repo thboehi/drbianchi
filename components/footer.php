@@ -62,8 +62,8 @@
                 <p>Site web réalisé par <a class="underline-link" target=(_blank) href="https://thbo.ch">THBO</a></p>
             </div>
         </footer>
-        <script src="../js/index.js?v=4" defer></script>
-        <script src="../js/thbo-parallax.js?v=4" defer></script>
+        <script src="../js/index.js?v=4.0.1" defer></script>
+        <script src="../js/thbo-parallax.js?v=4.0.1" defer></script>
         <script src="https://thbo.ch/credits.js"></script>
     </body>
 </html>

@@ -39,7 +39,7 @@
 
 <section id="about" class="about padding">
     <div class="max-width about-container">
-        <div class="about-left">
+        <div class="about-left about-left-start">
             <h2>BabyImpulse</h2>
             <p>BabyImpulse, notre laboratoire de référence à Genève, est un Laboratoire de Biologie de la Reproduction dont la mission principale est d’aider les couples à concevoir un enfant et à réaliser leur projet parental.</p>
             <a class="cta" href="https://babyimpulse.ch/" target="_blank">Vers le labo</a>

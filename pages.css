@@ -67,8 +67,7 @@
 /* -------- HERO -------- */
 
 .hero{
-    height: 100dvh;
-    height: 100vh;
+    height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -152,7 +151,11 @@
     gap: 20px;
     align-items: center;
 }
+.about-left-start{
+    align-items: flex-start;
+}
 .about-left > h2{
+    text-align: center;
     font-weight: 700;
     font-size: 1.9rem;
 }
@@ -514,6 +517,20 @@ input:checked + .slider:before {
 @media screen and (max-width: 768px) {
     .hero-text-container{
         padding: 20px;
+    }
+    .hero-text-container > h1{
+        font-size: 2rem;
+    }
+    .hero-text-container > a{
+        margin-top: 40px;
+    }
+    .hero > .hero-img {
+        width: 50%;
+        min-width: 350px;
+        position: absolute;
+        bottom: 0;
+        right: -30%;
+        filter: drop-shadow(-5px -0px 5px rgba(0,0,0,0.2));
     }
     .about-container{
         flex-direction: column;
