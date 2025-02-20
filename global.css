@@ -35,7 +35,9 @@ h1, h2, h3, h4, h5 {
 h1{
     font-weight: 900;
 }
-
+.text-center{
+    text-align: center;
+}
 ::selection{
     color: var(--white);
     background: var(--color2);
