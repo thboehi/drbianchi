@@ -67,40 +67,54 @@
 /* -------- HERO -------- */
 
 .hero{
-    background: url("/img/banner.jpg");
-    background-position: center;
-    background-size: cover;
-    height: calc(100dvh/3);
-    height: calc(100vh/3);
+    height: 100dvh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 220px;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-text-container{
-    margin: 0 auto;
-    max-width: calc((2/3)*var(--max-width));
     color: var(--black);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background: var(--white);
-    padding: 40px 120px;
-    transform: translateY(calc(100dvh/6));
     z-index: 2;
     text-align: center;
-    border-radius: 15px;
 }
 
 .hero-text-container > h1{
-    font-family: "Della Respira", serif;
-    font-size: 2rem;
+    text-transform: uppercase;
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: elementAppears 1000ms 200ms forwards;
+}
+.hero-text-container > h2{
+    text-transform: uppercase;
+    font-size: 1rem;
+    opacity: 0;
+    animation: elementAppears 1000ms 800ms forwards;
 }
 
 .hero-text-container > a{
-    margin-top: 20px;
+    opacity: 0;
+    animation: elementAppears 1000ms 1600ms forwards;
+    margin-top: 80px;
+}
+
+.hero > .hero-img {
+    width: 50%;
+    max-width: 800px;
+    min-width: 250px;
+    position: absolute;
+    bottom: 0; right: -15%;
+    transform-origin: bottom right;
+    filter: drop-shadow(-10px -0px 20px rgba(0,0,0,0.2));
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0.8) 75%, rgba(0, 0, 0, 0) 100%);
 }
 
 /* -------- ABOUT -------- */
@@ -140,7 +154,6 @@
     align-items: flex-start;
 }
 .about-left > h2{
-    font-family: "Merriweather", serif;
     font-weight: 700;
     font-size: 1.9rem;
 }
@@ -442,7 +455,6 @@ input:checked + .slider:before {
 }
 
 .error-container h1 {
-    font-family: "Merriweather", serif;
     font-size: 6rem;
     color: var(--color2);
     line-height: 1;
@@ -450,7 +462,6 @@ input:checked + .slider:before {
 }
 
 .error-container h2 {
-    font-family: "Merriweather", serif;
     font-size: 2rem;
     color: var(--black);
 }

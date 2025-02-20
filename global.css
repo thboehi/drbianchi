@@ -12,6 +12,7 @@
     --color3-lighter: #72ffe8;
     --color3-lilighter: #f2fffd;
     --black: #1d1d1d;
+    --lessblack: #343434;
     --ease-slow-fast-slow: cubic-bezier(.01,.93,.09,.98);
     --ease-slow-fast: cubic-bezier(.68,-0.01,1,.52);
     --max-width: 1200px;
@@ -22,6 +23,12 @@
     padding: 0;
     font-family: "Nunito Sans", sans-serif;
     box-sizing: border-box;
+}
+h1, h2, h3, h4, h5 {
+    font-family: "DM Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 750;
+    font-style: normal;
 }
 
 ::selection{
@@ -57,14 +64,14 @@ a{
 }
 
 .cta{
-    background: var(--color2);
+    background: var(--black);
     padding: 10px 20px;
     border: none;
     outline: none;
     cursor: pointer;
     transition: background 300ms ease-out, transform 300ms ease-out, color 300ms ease-out, box-shadow 300ms ease-out;
     color: var(--white);
-    border-radius: 50px;
+    border-radius: 15px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
@@ -73,7 +80,7 @@ a{
 }
 
 .cta:hover{
-    background: var(--black);
+    background: var(--lessblack);
     transform: scale(1);
     transition: background 100ms ease-out, transform 100ms ease-out, color 100ms ease-out, box-shadow 100ms ease-out;
     transform: scale(0.99);
@@ -81,7 +88,7 @@ a{
 }
 
 .cta > img{
-    height: 34px;
+    height: 24px;
 }
 
 .underline-link{
@@ -109,7 +116,6 @@ a{
 }
 
 section > h2{
-    font-family: "Merriweather", serif;
     font-weight: 700;
     font-size: 1.9rem;
     text-align: center;
@@ -141,10 +147,7 @@ hr.separator {
 
 /* ------ NAVBAR ------ */
 
-#nav-element[data-bg="visible"]{
-    background: var(--white);
-    color: var(--black);
-}
+
 #nav-element[data-bg="visible"] .burger-line{
     background: var(--black);
 }
@@ -155,12 +158,12 @@ hr.separator {
 #nav-element{
     position: fixed;
     top: 0; left: 0;
-    background: transparent;
+    background: var(--white);
     padding: 0px 24px;
     width: 100%;
     transition: background 600ms ease-out, transform 600ms var(--ease-slow-fast-slow), color 300ms ease-out;
     height: auto;
-    color: var(--white);
+    color: var(--black);
     z-index: 10;
 }
 
@@ -205,14 +208,9 @@ hr.separator {
     font-weight: 500;
     opacity: 0.5;
     transition: opacity 100ms ease-out;
-    text-shadow: black 0px 0px 8px;
     transition: text-shadow 500ms ease-out 200ms;
 }
 
-#nav-element[data-bg="visible"] ul li a{
-    transition: text-shadow 0ms;
-    text-shadow: none;
-}
 .navbar-right ul li:last-of-type a{
     padding-right: 0px;
 }
@@ -403,4 +401,14 @@ hr.separator {
     }
     
 
+}
+
+@keyframes elementAppears {
+    0% {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+    
 }
