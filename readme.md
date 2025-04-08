@@ -1,3 +1,10 @@
+## Licence
+
+Ce projet est sous licence **Creative Commons BY-NC 4.0**.  
+Vous pouvez l’utiliser, le modifier, mais **pas le vendre**, et vous devez **créditer l’auteur original**.
+
+Détails : [https://creativecommons.org/licenses/by-nc/4.0](https://creativecommons.org/licenses/by-nc/4.0)
+
 # Paramètres
 ## Employés
 Pour modifier la team, éditez le fichier team.json qui se trouve dans /data
